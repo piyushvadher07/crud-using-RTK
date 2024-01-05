@@ -47,7 +47,7 @@ const Edituser = () => {
            ...value,
             id: singleUser?.id
         }
-        // dispatch(editUsers(value))
+        dispatch(editUsers(value))
         navigate('/');
 
     }
