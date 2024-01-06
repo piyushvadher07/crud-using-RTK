@@ -4,79 +4,31 @@
       "name": "PIYUSH",
       "email": "piyush@gmail.com",
       "phone": "8141190556",
-      "id": 2
+      "id": 1
     },
     {
       "name": "KEVAL",
       "email": "keval@gmail.com",
       "phone": "9998970389",
+      "id": 2
+    },
+    {
+      "name": "DHIRAJ",
+      "email": "dhiraj@gmail.com",
+      "phone": "9016331699",
       "id": 3
     },
     {
       "name": "RAHUL",
       "email": "rahul@gmail.com",
-      "phone": "7016329621",
+      "phone": "8866997744",
       "id": 4
     },
     {
-      "name": "SAURAV",
-      "email": "saurav@gmail.com",
-      "phone": "8866993311",
+      "name": "BHARGAV",
+      "email": "bhargav@gmail.com",
+      "phone": "9966332244",
       "id": 5
-    },
-    {
-      "name": "ASHOK",
-      "email": "ashok@gmail.com",
-      "phone": "7862061025",
-      "id": 6
-    },
-    {
-      "name": "ATUL",
-      "email": "atul@gmail.com",
-      "phone": "8141562321",
-      "id": 7
-    },
-    {
-      "name": "SUNIL",
-      "email": "sunil@gmail.com",
-      "phone": "8980424713",
-      "id": 8
-    },
-    {
-      "name": "VIVEK",
-      "email": "vivek@gmail.com",
-      "phone": "8866773934",
-      "id": 9
-    },
-    {
-      "name": "DHAVAL",
-      "email": "dhaval@gmail.com",
-      "phone": "8866993322",
-      "id": 13
-    },
-    {
-      "name": "BHARAT",
-      "email": "bharat@gmail.com",
-      "phone": "8877996644",
-      "id": 15
-    },
-    {
-      "name": "KEVLO",
-      "email": "kevlo@gmail.com",
-      "phone": "7777777777",
-      "id": 17
-    },
-    {
-      "name": "ccccccc",
-      "email": "ccccccc@",
-      "phone": "333333",
-      "id": 18
-    },
-    {
-      "name": "kkkkkk",
-      "email": "aaaa@",
-      "phone": "4444",
-      "id": 19
     }
   ]
 }

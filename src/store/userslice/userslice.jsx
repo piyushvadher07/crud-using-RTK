@@ -33,6 +33,14 @@ export const editUsers = createAsyncThunk('users/editUsers', async (id) => {
   return response.data
 })
 
+export const clearAll = createAsyncThunk('users/clearAll', async (payload,{dispatch}) => {
+  payload?.forEach( async (element) => {
+    const response = await axios.delete(`http://localhost:2000/user/${element?.id}`)
+    return response.data
+  });
+  dispatch(fetchUsers())
+})
+
 
 const userSlice = createSlice({
   name: 'users',
@@ -114,6 +122,10 @@ const userSlice = createSlice({
     //   .addCase(fetchSingleUsers.rejected, (state, action) => {
     //     state.loading = false;
     //   })
+
+
+    
+
   },
 })
 

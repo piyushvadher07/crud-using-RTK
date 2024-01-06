@@ -1,4 +1,4 @@
-import axios from 'axios';
+
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { newUsers } from '../store/userslice/userslice';
@@ -24,7 +24,7 @@ const Newuser = () => {
                 <div className="row ">
                     <div className="card">
                         <div className="card-title ">
-                            <h1 className="text-center ">NEW USER ADD DATA</h1>
+                            <h1 className='bg-secondary text-white p-3 text-center '>NEW USER ADD DATA</h1>
                         </div>
                         <div className="card-body">
                             <div className="offset-lg-3 col-lg-6">
