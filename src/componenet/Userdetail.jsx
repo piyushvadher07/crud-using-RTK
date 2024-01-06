@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 const Userdetail = () => {
 
     const [userList, setUserList] = useState([])
+    const [searchText, setSearchText] = useState('');
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { users, loading } = useSelector((state) => state?.user)
@@ -29,6 +30,14 @@ const Userdetail = () => {
         dispatch(clearAll(userList))
     }
 
+    const onSearch = (e) => {
+        setSearchText(e?.target?.value);
+    }
+
+    const filterData = userList?.filter((data) => data?.name?.toLowerCase().includes(searchText.toLowerCase()))
+    const mainData = searchText?.length > 0 ? filterData : userList;
+
+
     return (
         <>
             {loading ? <text> Loading</text> : <div className="container">
@@ -44,6 +53,16 @@ const Userdetail = () => {
                                 <Link type='button' to="/newuser" className="btn btn-primary m-4 fw-bold ">
                                     ADD NEW
                                 </Link>
+                                <div className='col-md-6'>
+                                <input
+                                    className="form-control  mt-4"
+                                    type="search"
+                                    placeholder="Search"
+                                    aria-label="Search"
+                                    onChange={(e) => { onSearch(e) }}
+                                    style={{ width: "200px" }}
+                                />
+                                </div>
                             </div>
 
                             <div className="card-body ">
@@ -59,7 +78,7 @@ const Userdetail = () => {
                                     </thead>
                                     <tbody>
 
-                                        {userList && userList.map((item, index) => {
+                                        { mainData.map((item, index) => {
 
                                             return <tr key={index} className="text-center fw-bold">
                                                 <td>{index + 1}</td>
