@@ -2,12 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearAll, deleteUser, editUsers, fetchUsers } from '../store/userslice/userslice';
 import { Link, useNavigate } from "react-router-dom";
+import TablePagination from '@mui/material/TablePagination';
 
 
 const Userdetail = () => {
 
     const [userList, setUserList] = useState([])
-    const [searchText, setSearchText] = useState('');
+    const [searchText, setSearchText] = useState("");
+    const [page, setPage] = useState(0);
+    const [rowsPerPage, setRowsPerPage] = useState(4);
+
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { users, loading } = useSelector((state) => state?.user)
@@ -29,6 +33,20 @@ const Userdetail = () => {
     const onDelete = (e) => {
         dispatch(clearAll(userList))
     }
+
+
+    const handleChangePage = (event, newPage) => {
+        setPage(newPage);
+    };
+
+    const handleChangeRowsPerPage = (event) => {
+        setRowsPerPage(parseInt(event.target.value, 10));
+        setPage(0);
+    };
+
+
+
+
 
     const onSearch = (e) => {
         setSearchText(e?.target?.value);
@@ -53,15 +71,15 @@ const Userdetail = () => {
                                 <Link type='button' to="/newuser" className="btn btn-primary m-4 fw-bold ">
                                     ADD NEW
                                 </Link>
-                                <div className='col-md-6'>
-                                <input
-                                    className="form-control  mt-4"
-                                    type="search"
-                                    placeholder="Search"
-                                    aria-label="Search"
-                                    onChange={(e) => { onSearch(e) }}
-                                    style={{ width: "200px" }}
-                                />
+                                <div className='col-md-4'>
+                                    <input
+                                        className="form-control  mt-4"
+                                        type="search"
+                                        placeholder="Search"
+                                        aria-label="Search"
+                                        onChange={(e) => { onSearch(e) }}
+                                        style={{ width: "200px" }}
+                                    />
                                 </div>
                             </div>
 
@@ -78,7 +96,8 @@ const Userdetail = () => {
                                     </thead>
                                     <tbody>
 
-                                        { mainData.map((item, index) => {
+                                        {mainData?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                        .map((item, index) => {
 
                                             return <tr key={index} className="text-center fw-bold">
                                                 <td>{index + 1}</td>
@@ -101,6 +120,15 @@ const Userdetail = () => {
                                     </tbody>
                                 </table>
                             </div>
+
+                            <TablePagination color="primary"
+                            component="div"
+                            count={userList?.length || 0}
+                            page={page}
+                            onPageChange={handleChangePage}
+                            rowsPerPage={rowsPerPage}
+                            onRowsPerPageChange={handleChangeRowsPerPage}
+                        />
                         </div>
                     </div>
                 </div>

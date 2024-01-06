@@ -65,12 +65,12 @@ const Newuser = () => {
                                             </div>
 
                                             <div className="col-lg-12 mb-2">
-                                                <div className="form-group">
+                                                <div className="form-group m-2">
                                                     <button type="submit"
-                                                        className="btn  me-2" >Submit</button>
+                                                        className="btn btn-primary " >Submit</button>
                                                     <Link
                                                         to="/"
-                                                        className="btn  ">Go Back</Link>
+                                                        className="btn btn-danger mx-2">Go Back</Link>
                                                 </div>
                                             </div>
                                         </div>
